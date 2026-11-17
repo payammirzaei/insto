@@ -1,0 +1,12 @@
+# Fallback when Railpack/Nixpacks autodetection needs a nudge.
+[phases.setup]
+nixPkgs = ["nodejs_22"]
+
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = ["npm run build", "npm run package"]
+
+[start]
+cmd = "npm start"

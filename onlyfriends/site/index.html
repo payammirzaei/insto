@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OnlyFriends — Instagram, just your people</title>
+    <meta
+      name="description"
+      content="A calm Firefox extension that reshapes Instagram’s website for friends-only browsing. Local preferences. No passwords. No backend tracking."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;550;650&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="top">
+      <p class="brand">OnlyFriends</p>
+      <nav class="nav">
+        <a href="#install">Install</a>
+        <a href="#limits">Limits</a>
+        <a href="/health">Health</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="brand-hero">OnlyFriends</p>
+        <h1>Instagram, just your people.</h1>
+        <p class="lede">
+          A Firefox extension that keeps messages, filters for selected friends when the
+          page allows it, and quietly puts Explore and Reels out of easy reach.
+        </p>
+        <div class="cta">
+          <a class="btn primary" id="download-btn" href="#install">Get the package</a>
+          <a class="btn ghost" href="https://www.instagram.com/" rel="noopener">Open Instagram</a>
+        </div>
+      </section>
+
+      <section class="panel" id="install">
+        <h2>Install on Firefox Desktop</h2>
+        <ol>
+          <li>Download the unsigned build below.</li>
+          <li>Unzip, or use the built <code>dist/</code> from a local clone.</li>
+          <li>Open <code>about:debugging#/runtime/this-firefox</code>.</li>
+          <li>Load Temporary Add-on → choose <code>manifest.json</code>.</li>
+          <li>Visit Instagram signed in → tap the on-page <strong>OF</strong> button.</li>
+        </ol>
+        <p class="note">
+          Temporary add-ons disappear when Firefox restarts. Stable Firefox Android needs a
+          <strong>Mozilla-signed XPI</strong> — an unsigned ZIP is not installable there.
+        </p>
+        <div class="downloads" id="downloads">
+          <p class="muted">Loading release artifacts…</p>
+        </div>
+      </section>
+
+      <section class="panel" id="limits">
+        <h2>What this site is</h2>
+        <p>
+          This Railway service is a <strong>static landing + artifact host</strong>. It does
+          not talk to Instagram, does not collect credentials, and does not store your friends
+          list. Extension preferences stay in your browser.
+        </p>
+        <ul>
+          <li>Strict Friends filtering depends on readable usernames in Instagram’s DOM.</li>
+          <li>Story viewer swipe chains are not safely filterable.</li>
+          <li>Ad hiding is best-effort, never complete.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Not affiliated with Instagram or Meta. Private MVP hosting.</p>
+    </footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

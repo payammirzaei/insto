@@ -1,0 +1,15 @@
+# Railway config for OnlyFriends landing + artifact host.
+# Deploy from this directory (or set rootDirectory = "onlyfriends" in a monorepo).
+#
+# This is NOT an Instagram proxy. It only serves a static site and built extension packages.
+
+[build]
+builder = "RAILPACK"
+buildCommand = "npm ci && npm run package"
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

@@ -1,0 +1,28 @@
+/* Page-level distraction reduction (content script CSS, not shadow DOM).
+   Best-effort. Never claim complete ad removal.
+
+   Verified mobile bottom-nav hrefs (2026-11-16, logged-out shell):
+     /reels/, /explore/
+   Must NOT hide: /u/direct/, /u/profile/, /direct/…
+*/
+
+a[href="/explore/"],
+a[href^="/explore/"],
+a[href="/reels/"],
+a[href^="/reels/"],
+a[href^="/reel/"],
+a[href="/u/explore/"],
+a[href^="/u/explore/"],
+a[href="/u/reels/"],
+a[href^="/u/reels/"] {
+  display: none !important;
+}
+
+/* IMPORTANT: do not hide [role=listbox] globally — Instagram DMs use listboxes
+   for recipient search / conversation UI. Explore search suggestions are handled
+   by navigation guards + Strict Friends instead. */
+
+/* Hide elements already flagged by our filter */
+[data-of-hidden="true"] {
+  display: none !important;
+}

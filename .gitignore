@@ -1,0 +1,20 @@
+# Dependencies & build
+**/node_modules/
+**/dist/
+**/release/
+*.log
+.DS_Store
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Editors / local
+.cursor/
+.vscode/
+*.xpi
+
+# OS
+Thumbs.db
+Desktop.ini

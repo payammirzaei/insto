@@ -1,0 +1,10 @@
+node_modules
+.git
+.cursor
+dist
+release
+*.log
+.env
+.env.*
+coverage
+agent-transcripts

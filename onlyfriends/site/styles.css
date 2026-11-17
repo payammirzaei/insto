@@ -1,0 +1,237 @@
+:root {
+  color-scheme: light dark;
+  --ink: #1a1714;
+  --muted: #6f675e;
+  --paper: #f3efe8;
+  --surface: rgba(255, 252, 247, 0.86);
+  --line: rgba(26, 23, 20, 0.12);
+  --accent: #0f5c4c;
+  --accent-ink: #e8fff8;
+  --shadow: 0 18px 50px rgba(26, 23, 20, 0.12);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f4efe7;
+    --muted: #b0a79c;
+    --paper: #12100e;
+    --surface: rgba(28, 24, 20, 0.88);
+    --line: rgba(244, 239, 231, 0.12);
+    --accent: #3dbaa0;
+    --accent-ink: #04251e;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+}
+
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(61, 186, 160, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(180, 120, 60, 0.14), transparent 50%),
+    linear-gradient(180deg, transparent, rgba(26, 23, 20, 0.04));
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(0, -12px, 0) scale(1.03);
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px clamp(16px, 4vw, 40px);
+}
+
+.brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-size: 1.15rem;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--ink);
+}
+
+main {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto 64px;
+}
+
+.hero {
+  padding: clamp(36px, 10vh, 96px) 0 40px;
+  animation: rise 700ms ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand-hero {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+  margin: 14px 0 22px;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 650;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--surface);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: transparent;
+}
+
+.btn.ghost {
+  background: transparent;
+}
+
+.panel {
+  margin-top: 28px;
+  padding: 22px 20px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  animation: rise 900ms ease both;
+}
+
+.panel h2 {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.panel ol,
+.panel ul {
+  padding-inline-start: 1.2rem;
+}
+
+.note,
+.muted {
+  color: var(--muted);
+}
+
+.downloads {
+  margin-top: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.downloads a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--paper) 70%, transparent);
+  font-weight: 550;
+}
+
+code {
+  font-size: 0.92em;
+}
+
+footer {
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OnlyFriends</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>OnlyFriends</h1>
+      <p class="tag">Instagram, just your people.</p>
+      <p class="hint">
+        Open <strong>instagram.com</strong> while signed in. Tap the <strong>OF</strong> button
+        on the page for full settings (friends, mode, timer, theme, language).
+      </p>
+      <label class="row">
+        <span>Active</span>
+        <input type="checkbox" id="enabled" />
+      </label>
+      <p id="status" class="status" role="status"></p>
+      <div class="actions">
+        <button type="button" id="open-ig" class="primary">Open Instagram</button>
+        <button type="button" id="open-settings">Open page settings</button>
+      </div>
+      <p class="privacy">
+        Preferences stay on this device. Domain access: <code>instagram.com</code> only.
+        No telemetry. Mozilla-signed XPI required for stable Firefox Android installs.
+      </p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "OnlyFriends",
+  "version": "0.1.1",
+  "description": "A calm, friends-only Instagram experience. Filters the page you already signed into — no passwords, no backend, no tracking.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "onlyfriends@onlyfriends.app",
+      "strict_min_version": "113.0"
+    },
+    "gecko_android": {
+      "strict_min_version": "120.0"
+    }
+  },
+  "permissions": ["storage", "https://www.instagram.com/*", "https://instagram.com/*"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "OnlyFriends",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*", "https://instagram.com/*"],
+      "js": ["content.js"],
+      "css": ["page.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": []
+}
